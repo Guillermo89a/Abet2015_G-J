@@ -73,8 +73,50 @@ public class OutcomeLogic implements IOutcomeLogic {
         return list;
     }
 
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void saveOutcome(String detalle, Long idOutcome)
+//        throws Exception {
+//        Outcome entity = null;
+//
+//        try {
+//            if (detalle == null) {
+//                throw new ZMessManager().new EmptyFieldException("detalle");
+//            }
+//
+//            if ((detalle != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(detalle, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("detalle");
+//            }
+//
+//            if (idOutcome == null) {
+//                throw new ZMessManager().new EmptyFieldException("idOutcome");
+//            }
+//
+//            if ((idOutcome != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idOutcome, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idOutcome");
+//            }
+//
+//            entity = getOutcome(idOutcome);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Outcome();
+//            entity.setDetalle(detalle);
+//            entity.setIdOutcome(idOutcome);
+//            outcomeDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void saveOutcome(String detalle, Long idOutcome)
+    public void saveOutcome(String detalle)
         throws Exception {
         Outcome entity = null;
 
@@ -88,18 +130,7 @@ public class OutcomeLogic implements IOutcomeLogic {
                 throw new ZMessManager().new NotValidFormatException("detalle");
             }
 
-            if (idOutcome == null) {
-                throw new ZMessManager().new EmptyFieldException("idOutcome");
-            }
-
-            if ((idOutcome != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idOutcome, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idOutcome");
-            }
-
-            entity = getOutcome(idOutcome);
+         
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
@@ -107,7 +138,7 @@ public class OutcomeLogic implements IOutcomeLogic {
 
             entity = new Outcome();
             entity.setDetalle(detalle);
-            entity.setIdOutcome(idOutcome);
+  
             outcomeDAO.save(entity);
         } catch (Exception e) {
             throw e;

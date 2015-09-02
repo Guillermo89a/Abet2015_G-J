@@ -21,9 +21,13 @@ public interface IPensumLogic {
     /**
          * Save an new Pensum entity
          */
-    public void savePensum(String creditos, Long idPensum, String semestre,
-        Long idCodigoMateria_Materia, Long idPrograma_Programa)
+    public void savePensum(String creditos, String semestre)
         throws Exception;
+    
+//    */
+//   public void savePensum(String creditos, Long idPensum, String semestre,
+//       Long idCodigoMateria_Materia, Long idPrograma_Programa)
+//       throws Exception;
 
     /**
          * Delete an existing Pensum entity

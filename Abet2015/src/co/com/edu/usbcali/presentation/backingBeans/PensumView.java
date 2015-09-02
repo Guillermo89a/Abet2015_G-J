@@ -141,54 +141,66 @@ public class PensumView {
         return "";
     }
 
-    public void listener_txtId() {
-        Pensum entity = null;
+//    public void listener_txtId() {
+//        Pensum entity = null;
+//
+//        try {
+//            Long idPensum = new Long(txtIdPensum.getValue().toString());
+//            entity = businessDelegatorView.getPensum(idPensum);
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
+//
+//        if (entity == null) {
+//            txtCreditos.setDisabled(false);
+//            txtSemestre.setDisabled(false);
+//            txtIdCodigoMateria_Materia.setDisabled(false);
+//            txtIdPrograma_Programa.setDisabled(false);
+//            txtIdPensum.setDisabled(false);
+//            btnSave.setDisabled(false);
+//            btnDelete.setDisabled(true);
+//            btnModify.setDisabled(true);
+//            btnClear.setDisabled(false);
+//        } else {
+//            txtCreditos.setValue(entity.getCreditos());
+//            txtCreditos.setDisabled(false);
+//            txtSemestre.setValue(entity.getSemestre());
+//            txtSemestre.setDisabled(false);
+//            txtIdCodigoMateria_Materia.setValue(entity.getMateria()
+//                                                      .getIdCodigoMateria());
+//            txtIdCodigoMateria_Materia.setDisabled(false);
+//            txtIdPrograma_Programa.setValue(entity.getPrograma().getIdPrograma());
+//            txtIdPrograma_Programa.setDisabled(false);
+//            txtIdPensum.setValue(entity.getIdPensum());
+//            txtIdPensum.setDisabled(true);
+//            btnSave.setDisabled(true);
+//            btnDelete.setDisabled(false);
+//            btnModify.setDisabled(false);
+//            btnClear.setDisabled(false);
+//        }
+//    }
 
-        try {
-            Long idPensum = new Long(txtIdPensum.getValue().toString());
-            entity = businessDelegatorView.getPensum(idPensum);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        if (entity == null) {
-            txtCreditos.setDisabled(false);
-            txtSemestre.setDisabled(false);
-            txtIdCodigoMateria_Materia.setDisabled(false);
-            txtIdPrograma_Programa.setDisabled(false);
-            txtIdPensum.setDisabled(false);
-            btnSave.setDisabled(false);
-            btnDelete.setDisabled(true);
-            btnModify.setDisabled(true);
-            btnClear.setDisabled(false);
-        } else {
-            txtCreditos.setValue(entity.getCreditos());
-            txtCreditos.setDisabled(false);
-            txtSemestre.setValue(entity.getSemestre());
-            txtSemestre.setDisabled(false);
-            txtIdCodigoMateria_Materia.setValue(entity.getMateria()
-                                                      .getIdCodigoMateria());
-            txtIdCodigoMateria_Materia.setDisabled(false);
-            txtIdPrograma_Programa.setValue(entity.getPrograma().getIdPrograma());
-            txtIdPrograma_Programa.setDisabled(false);
-            txtIdPensum.setValue(entity.getIdPensum());
-            txtIdPensum.setDisabled(true);
-            btnSave.setDisabled(true);
-            btnDelete.setDisabled(false);
-            btnModify.setDisabled(false);
-            btnClear.setDisabled(false);
-        }
-    }
-
+//    public String action_save() {
+//        try {
+//            businessDelegatorView.savePensum(FacesUtils.checkString(txtCreditos),
+//                FacesUtils.checkLong(txtIdPensum),
+//                FacesUtils.checkString(txtSemestre),
+//                FacesUtils.checkLong(txtIdCodigoMateria_Materia),
+//                FacesUtils.checkLong(txtIdPrograma_Programa));
+//            FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
+//            action_clear();
+//        } catch (Exception e) {
+//            FacesUtils.addErrorMessage(e.getMessage());
+//        }
+//
+//        return "";
+//    }
+    
     public String action_save() {
         try {
             businessDelegatorView.savePensum(FacesUtils.checkString(txtCreditos),
-                FacesUtils.checkLong(txtIdPensum),
-                FacesUtils.checkString(txtSemestre),
-                FacesUtils.checkLong(txtIdCodigoMateria_Materia),
-                FacesUtils.checkLong(txtIdPrograma_Programa));
+                FacesUtils.checkString(txtSemestre));
             FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
-            action_clear();
         } catch (Exception e) {
             FacesUtils.addErrorMessage(e.getMessage());
         }

@@ -298,8 +298,11 @@ public interface IBusinessDelegatorView {
 
     public List<Materia> getMateria() throws Exception;
 
-    public void saveMateria(String creditos, Long idCodigoMateria, String nombre)
+    public void saveMateria(String creditos,String nombre)
         throws Exception;
+    
+//    public void saveMateria(String creditos, Long idCodigoMateria, String nombre)
+//            throws Exception;
 
     public void deleteMateria(Long idCodigoMateria) throws Exception;
 
@@ -322,8 +325,11 @@ public interface IBusinessDelegatorView {
 
     public List<Outcome> getOutcome() throws Exception;
 
-    public void saveOutcome(String detalle, Long idOutcome)
-        throws Exception;
+//    public void saveOutcome(String detalle, Long idOutcome)
+//        throws Exception;
+    
+    public void saveOutcome(String detalle)
+            throws Exception;
 
     public void deleteOutcome(Long idOutcome) throws Exception;
 
@@ -403,10 +409,13 @@ public interface IBusinessDelegatorView {
 
     public List<Pensum> getPensum() throws Exception;
 
-    public void savePensum(String creditos, Long idPensum, String semestre,
-        Long idCodigoMateria_Materia, Long idPrograma_Programa)
-        throws Exception;
+//    public void savePensum(String creditos, Long idPensum, String semestre,
+//        Long idCodigoMateria_Materia, Long idPrograma_Programa)
+//        throws Exception;
 
+    public void savePensum(String creditos,String semestre)
+            throws Exception;
+    
     public void deletePensum(Long idPensum) throws Exception;
 
     public void updatePensum(String creditos, Long idPensum, String semestre,
@@ -430,8 +439,10 @@ public interface IBusinessDelegatorView {
     public List<PeriodoAcademico> getPeriodoAcademico()
         throws Exception;
 
-    public void savePeriodoAcademico(String descripcionPeriodo,
-        Long idPeriodoAcademico) throws Exception;
+//    public void savePeriodoAcademico(String descripcionPeriodo,
+//        Long idPeriodoAcademico) throws Exception;
+    
+    public void savePeriodoAcademico(String descripcionPeriodo) throws Exception;
 
     public void deletePeriodoAcademico(Long idPeriodoAcademico)
         throws Exception;
@@ -457,8 +468,12 @@ public interface IBusinessDelegatorView {
 
     public List<Programa> getPrograma() throws Exception;
 
-    public void savePrograma(String descripcion, Long idPrograma)
-        throws Exception;
+//    public void savePrograma(String descripcion, Long idPrograma)
+//        throws Exception;
+    
+    public void savePrograma(String descripcion)
+            throws Exception;
+
 
     public void deletePrograma(Long idPrograma) throws Exception;
 
@@ -481,8 +496,11 @@ public interface IBusinessDelegatorView {
 
     public List<Rubrica> getRubrica() throws Exception;
 
-    public void saveRubrica(Long idRubrica, String nombreRubrica)
-        throws Exception;
+//    public void saveRubrica(Long idRubrica, String nombreRubrica)
+//        throws Exception;
+    
+  public void saveRubrica(String nombreRubrica)
+  throws Exception;    
 
     public void deleteRubrica(Long idRubrica) throws Exception;
 

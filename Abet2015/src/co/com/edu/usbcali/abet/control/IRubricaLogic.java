@@ -21,8 +21,11 @@ public interface IRubricaLogic {
     /**
          * Save an new Rubrica entity
          */
-    public void saveRubrica(Long idRubrica, String nombreRubrica)
-        throws Exception;
+//    public void saveRubrica(Long idRubrica, String nombreRubrica)
+//        throws Exception;
+    
+    public void saveRubrica(String nombreRubrica)
+            throws Exception;
 
     /**
          * Delete an existing Rubrica entity

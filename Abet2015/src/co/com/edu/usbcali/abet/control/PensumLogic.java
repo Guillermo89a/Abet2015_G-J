@@ -66,9 +66,9 @@ public class PensumLogic implements IPensumLogic {
         return list;
     }
 
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void savePensum(String creditos, Long idPensum, String semestre,
-        Long idCodigoMateria_Materia, Long idPrograma_Programa)
+    public void savePensum(String creditos, String semestre)
         throws Exception {
         Pensum entity = null;
 
@@ -78,57 +78,15 @@ public class PensumLogic implements IPensumLogic {
                 throw new ZMessManager().new NotValidFormatException("creditos");
             }
 
-            if (idPensum == null) {
-                throw new ZMessManager().new EmptyFieldException("idPensum");
-            }
-
-            if ((idPensum != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idPensum, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException("idPensum");
-            }
-
+          
             if ((semestre != null) &&
                     (Utilities.checkWordAndCheckWithlength(semestre, 100) == false)) {
                 throw new ZMessManager().new NotValidFormatException("semestre");
             }
 
-            if (idCodigoMateria_Materia == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idCodigoMateria_Materia");
-            }
 
-            if ((idCodigoMateria_Materia != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCodigoMateria_Materia, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idCodigoMateria_Materia");
-            }
 
-            if (idPrograma_Programa == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idPrograma_Programa");
-            }
-
-            if ((idPrograma_Programa != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idPrograma_Programa, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idPrograma_Programa");
-            }
-
-            Materia materiaClass = logicMateria1.getMateria(idCodigoMateria_Materia);
-            Programa programaClass = logicPrograma2.getPrograma(idPrograma_Programa);
-
-            if (materiaClass == null) {
-                throw new ZMessManager().new ForeignException("materia");
-            }
-
-            if (programaClass == null) {
-                throw new ZMessManager().new ForeignException("programa");
-            }
-
-            entity = getPensum(idPensum);
+           
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
@@ -136,16 +94,98 @@ public class PensumLogic implements IPensumLogic {
 
             entity = new Pensum();
             entity.setCreditos(creditos);
-            entity.setIdPensum(idPensum);
+
             entity.setSemestre(semestre);
-            entity.setMateria(materiaClass);
-            entity.setPrograma(programaClass);
+
             pensumDAO.save(entity);
         } catch (Exception e) {
             throw e;
         } finally {
         }
     }
+    
+    
+    
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void savePensum(String creditos, Long idPensum, String semestre,
+//        Long idCodigoMateria_Materia, Long idPrograma_Programa)
+//        throws Exception {
+//        Pensum entity = null;
+//
+//        try {
+//            if ((creditos != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(creditos, 2) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("creditos");
+//            }
+//
+//            if (idPensum == null) {
+//                throw new ZMessManager().new EmptyFieldException("idPensum");
+//            }
+//
+//            if ((idPensum != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idPensum, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("idPensum");
+//            }
+//
+//            if ((semestre != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(semestre, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("semestre");
+//            }
+//
+//            if (idCodigoMateria_Materia == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idCodigoMateria_Materia");
+//            }
+//
+//            if ((idCodigoMateria_Materia != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCodigoMateria_Materia, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idCodigoMateria_Materia");
+//            }
+//
+//            if (idPrograma_Programa == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idPrograma_Programa");
+//            }
+//
+//            if ((idPrograma_Programa != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idPrograma_Programa, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idPrograma_Programa");
+//            }
+//
+//            Materia materiaClass = logicMateria1.getMateria(idCodigoMateria_Materia);
+//            Programa programaClass = logicPrograma2.getPrograma(idPrograma_Programa);
+//
+//            if (materiaClass == null) {
+//                throw new ZMessManager().new ForeignException("materia");
+//            }
+//
+//            if (programaClass == null) {
+//                throw new ZMessManager().new ForeignException("programa");
+//            }
+//
+//            entity = getPensum(idPensum);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Pensum();
+//            entity.setCreditos(creditos);
+//            entity.setIdPensum(idPensum);
+//            entity.setSemestre(semestre);
+//            entity.setMateria(materiaClass);
+//            entity.setPrograma(programaClass);
+//            pensumDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void deletePensum(Long idPensum) throws Exception {

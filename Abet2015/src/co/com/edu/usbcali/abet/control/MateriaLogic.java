@@ -66,8 +66,53 @@ public class MateriaLogic implements IMateriaLogic {
         return list;
     }
 
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void saveMateria(String creditos, Long idCodigoMateria, String nombre)
+//        throws Exception {
+//        Materia entity = null;
+//
+//        try {
+//            if ((creditos != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(creditos, 2) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("creditos");
+//            }
+//
+//            if (idCodigoMateria == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idCodigoMateria");
+//            }
+//
+//            if ((idCodigoMateria != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCodigoMateria, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idCodigoMateria");
+//            }
+//
+//            if ((nombre != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(nombre, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("nombre");
+//            }
+//
+//            entity = getMateria(idCodigoMateria);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Materia();
+//            entity.setCreditos(creditos);
+//            entity.setIdCodigoMateria(idCodigoMateria);
+//            entity.setNombre(nombre);
+//            materiaDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void saveMateria(String creditos, Long idCodigoMateria, String nombre)
+    public void saveMateria(String creditos,  String nombre)
         throws Exception {
         Materia entity = null;
 
@@ -77,24 +122,14 @@ public class MateriaLogic implements IMateriaLogic {
                 throw new ZMessManager().new NotValidFormatException("creditos");
             }
 
-            if (idCodigoMateria == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idCodigoMateria");
-            }
-
-            if ((idCodigoMateria != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCodigoMateria, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idCodigoMateria");
-            }
+            
 
             if ((nombre != null) &&
                     (Utilities.checkWordAndCheckWithlength(nombre, 100) == false)) {
                 throw new ZMessManager().new NotValidFormatException("nombre");
             }
 
-            entity = getMateria(idCodigoMateria);
+        
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
@@ -102,7 +137,7 @@ public class MateriaLogic implements IMateriaLogic {
 
             entity = new Materia();
             entity.setCreditos(creditos);
-            entity.setIdCodigoMateria(idCodigoMateria);
+            
             entity.setNombre(nombre);
             materiaDAO.save(entity);
         } catch (Exception e) {
@@ -110,6 +145,7 @@ public class MateriaLogic implements IMateriaLogic {
         } finally {
         }
     }
+
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void deleteMateria(Long idCodigoMateria) throws Exception {

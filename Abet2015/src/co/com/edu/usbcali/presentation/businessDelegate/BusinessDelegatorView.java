@@ -612,10 +612,15 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return materiaLogic.getMateria();
     }
 
-    public void saveMateria(String creditos, Long idCodigoMateria, String nombre)
+    public void saveMateria(String creditos, String nombre)
         throws Exception {
-        materiaLogic.saveMateria(creditos, idCodigoMateria, nombre);
+        materiaLogic.saveMateria(creditos, nombre);
     }
+    
+//    public void saveMateria(String creditos, Long idCodigoMateria, String nombre)
+//            throws Exception {
+//            materiaLogic.saveMateria(creditos, idCodigoMateria, nombre);
+//        }
 
     public void deleteMateria(Long idCodigoMateria) throws Exception {
         materiaLogic.deleteMateria(idCodigoMateria);
@@ -664,10 +669,15 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return outcomeLogic.getOutcome();
     }
 
-    public void saveOutcome(String detalle, Long idOutcome)
-        throws Exception {
-        outcomeLogic.saveOutcome(detalle, idOutcome);
-    }
+//    public void saveOutcome(String detalle, Long idOutcome)
+//        throws Exception {
+//        outcomeLogic.saveOutcome(detalle, idOutcome);
+//    }
+    
+    public void saveOutcome(String detalle)
+            throws Exception {
+            outcomeLogic.saveOutcome(detalle);
+        }
 
     public void deleteOutcome(Long idOutcome) throws Exception {
         outcomeLogic.deleteOutcome(idOutcome);
@@ -833,12 +843,17 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return pensumLogic.getPensum();
     }
 
-    public void savePensum(String creditos, Long idPensum, String semestre,
-        Long idCodigoMateria_Materia, Long idPrograma_Programa)
-        throws Exception {
-        pensumLogic.savePensum(creditos, idPensum, semestre,
-            idCodigoMateria_Materia, idPrograma_Programa);
-    }
+//    public void savePensum(String creditos, Long idPensum, String semestre,
+//        Long idCodigoMateria_Materia, Long idPrograma_Programa)
+//        throws Exception {
+//        pensumLogic.savePensum(creditos, idPensum, semestre,
+//            idCodigoMateria_Materia, idPrograma_Programa);
+//    }
+    
+    public void savePensum(String creditos, String semestre)
+            throws Exception {
+            pensumLogic.savePensum(creditos,semestre);
+        }
 
     public void deletePensum(Long idPensum) throws Exception {
         pensumLogic.deletePensum(idPensum);
@@ -890,11 +905,15 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return periodoAcademicoLogic.getPeriodoAcademico();
     }
 
-    public void savePeriodoAcademico(String descripcionPeriodo,
-        Long idPeriodoAcademico) throws Exception {
-        periodoAcademicoLogic.savePeriodoAcademico(descripcionPeriodo,
-            idPeriodoAcademico);
-    }
+//    public void savePeriodoAcademico(String descripcionPeriodo,
+//        Long idPeriodoAcademico) throws Exception {
+//        periodoAcademicoLogic.savePeriodoAcademico(descripcionPeriodo,
+//            idPeriodoAcademico);
+//    }
+    
+    public void savePeriodoAcademico(String descripcionPeriodo) throws Exception {
+            periodoAcademicoLogic.savePeriodoAcademico(descripcionPeriodo);
+        }
 
     public void deletePeriodoAcademico(Long idPeriodoAcademico)
         throws Exception {
@@ -947,10 +966,15 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return programaLogic.getPrograma();
     }
 
-    public void savePrograma(String descripcion, Long idPrograma)
-        throws Exception {
-        programaLogic.savePrograma(descripcion, idPrograma);
-    }
+//    public void savePrograma(String descripcion, Long idPrograma)
+//        throws Exception {
+//        programaLogic.savePrograma(descripcion, idPrograma);
+//    }
+    
+    public void savePrograma(String descripcion)
+            throws Exception {
+            programaLogic.savePrograma(descripcion);
+        }
 
     public void deletePrograma(Long idPrograma) throws Exception {
         programaLogic.deletePrograma(idPrograma);
@@ -999,10 +1023,15 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return rubricaLogic.getRubrica();
     }
 
-    public void saveRubrica(Long idRubrica, String nombreRubrica)
-        throws Exception {
-        rubricaLogic.saveRubrica(idRubrica, nombreRubrica);
-    }
+//    public void saveRubrica(Long idRubrica, String nombreRubrica)
+//        throws Exception {
+//        rubricaLogic.saveRubrica(idRubrica, nombreRubrica);
+//    }
+    
+    public void saveRubrica(String nombreRubrica)
+            throws Exception {
+            rubricaLogic.saveRubrica(nombreRubrica);
+        }
 
     public void deleteRubrica(Long idRubrica) throws Exception {
         rubricaLogic.deleteRubrica(idRubrica);

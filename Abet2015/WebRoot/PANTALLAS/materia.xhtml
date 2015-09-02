@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>		
+	
+	<h:body>
+		  
+			<f:view>
+		
+		<h:form>
+			<div align="center">
+               <h:link id="cmdBack" outcome="goInitialMenu" value="Ingrese Informacion de la Materia" style="color:blue;" />
+			 </div>
+			 <br />
+			<p:panel id="msgProjectMateriaTitle" header="Materia" >
+			   <p:messages id="msg" showDetail="true"/>
+			   <p:growl id="men"/>
+			       <h:panelGrid columns="2" id="panel" >
+												 
+																	
+												<h:outputText id="msgCreditos" value=" Creditos"/>
+						<p:inputText id="txtCreditos" disabled="false" binding="#{materiaView.txtCreditos}"/>
+												<h:outputText id="msgNombre" value=" Nombre"/>
+						<p:inputText id="txtNombre" disabled="false" binding="#{materiaView.txtNombre}"/>
+												
+												
+				   </h:panelGrid>
+				   
+				   <h:panelGrid id="panelBotones" columns="4">
+					
+						<p:commandButton id="btnSave" disabled="false" value="Save" action="#{materiaView.action_save}" update="msg,panel,panelBotones"          binding="#{materiaView.btnSave}" />
+						
+				   
+				   </h:panelGrid>
+					
+			</p:panel>
+			
+		</h:form>
+		 </f:view>
+
+	
+	</h:body>	
+
+</html>	

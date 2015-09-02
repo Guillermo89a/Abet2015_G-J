@@ -60,9 +60,49 @@ public class PeriodoAcademicoLogic implements IPeriodoAcademicoLogic {
         return list;
     }
 
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void savePeriodoAcademico(String descripcionPeriodo,
+//        Long idPeriodoAcademico) throws Exception {
+//        PeriodoAcademico entity = null;
+//
+//        try {
+//            if ((descripcionPeriodo != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(descripcionPeriodo,
+//                        10) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "descripcionPeriodo");
+//            }
+//
+//            if (idPeriodoAcademico == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idPeriodoAcademico");
+//            }
+//
+//            if ((idPeriodoAcademico != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idPeriodoAcademico, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idPeriodoAcademico");
+//            }
+//
+//            entity = getPeriodoAcademico(idPeriodoAcademico);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new PeriodoAcademico();
+//            entity.setDescripcionPeriodo(descripcionPeriodo);
+//            entity.setIdPeriodoAcademico(idPeriodoAcademico);
+//            periodoAcademicoDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void savePeriodoAcademico(String descripcionPeriodo,
-        Long idPeriodoAcademico) throws Exception {
+    public void savePeriodoAcademico(String descripcionPeriodo) throws Exception {
         PeriodoAcademico entity = null;
 
         try {
@@ -73,19 +113,7 @@ public class PeriodoAcademicoLogic implements IPeriodoAcademicoLogic {
                     "descripcionPeriodo");
             }
 
-            if (idPeriodoAcademico == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idPeriodoAcademico");
-            }
-
-            if ((idPeriodoAcademico != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idPeriodoAcademico, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idPeriodoAcademico");
-            }
-
-            entity = getPeriodoAcademico(idPeriodoAcademico);
+           
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
@@ -93,7 +121,7 @@ public class PeriodoAcademicoLogic implements IPeriodoAcademicoLogic {
 
             entity = new PeriodoAcademico();
             entity.setDescripcionPeriodo(descripcionPeriodo);
-            entity.setIdPeriodoAcademico(idPeriodoAcademico);
+          
             periodoAcademicoDAO.save(entity);
         } catch (Exception e) {
             throw e;

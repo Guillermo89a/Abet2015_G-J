@@ -105,41 +105,39 @@ public class OutcomeView {
         return "";
     }
 
-    public void listener_txtId() {
-        Outcome entity = null;
-
-        try {
-            Long idOutcome = new Long(txtIdOutcome.getValue().toString());
-            entity = businessDelegatorView.getOutcome(idOutcome);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        if (entity == null) {
-            txtDetalle.setDisabled(false);
-            txtIdOutcome.setDisabled(false);
-            btnSave.setDisabled(false);
-            btnDelete.setDisabled(true);
-            btnModify.setDisabled(true);
-            btnClear.setDisabled(false);
-        } else {
-            txtDetalle.setValue(entity.getDetalle());
-            txtDetalle.setDisabled(false);
-            txtIdOutcome.setValue(entity.getIdOutcome());
-            txtIdOutcome.setDisabled(true);
-            btnSave.setDisabled(true);
-            btnDelete.setDisabled(false);
-            btnModify.setDisabled(false);
-            btnClear.setDisabled(false);
-        }
-    }
+//    public void listener_txtId() {
+//        Outcome entity = null;
+//
+//        try {
+//            Long idOutcome = new Long(txtIdOutcome.getValue().toString());
+//            entity = businessDelegatorView.getOutcome(idOutcome);
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
+//
+//        if (entity == null) {
+//            txtDetalle.setDisabled(false);
+//            txtIdOutcome.setDisabled(false);
+//            btnSave.setDisabled(false);
+//            btnDelete.setDisabled(true);
+//            btnModify.setDisabled(true);
+//            btnClear.setDisabled(false);
+//        } else {
+//            txtDetalle.setValue(entity.getDetalle());
+//            txtDetalle.setDisabled(false);
+//            txtIdOutcome.setValue(entity.getIdOutcome());
+//            txtIdOutcome.setDisabled(true);
+//            btnSave.setDisabled(true);
+//            btnDelete.setDisabled(false);
+//            btnModify.setDisabled(false);
+//            btnClear.setDisabled(false);
+//        }
+//    }
 
     public String action_save() {
         try {
-            businessDelegatorView.saveOutcome(FacesUtils.checkString(txtDetalle),
-                FacesUtils.checkLong(txtIdOutcome));
+            businessDelegatorView.saveOutcome(FacesUtils.checkString(txtDetalle));
             FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
-            action_clear();
         } catch (Exception e) {
             FacesUtils.addErrorMessage(e.getMessage());
         }
@@ -147,6 +145,19 @@ public class OutcomeView {
         return "";
     }
 
+//    public String action_save() {
+//        try {
+//            businessDelegatorView.saveOutcome(FacesUtils.checkString(txtDetalle),
+//                FacesUtils.checkLong(txtIdOutcome));
+//            FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
+//            action_clear();
+//        } catch (Exception e) {
+//            FacesUtils.addErrorMessage(e.getMessage());
+//        }
+//
+//        return "";
+//    }
+    
     public String action_delete() {
         try {
             businessDelegatorView.deleteOutcome(FacesUtils.checkLong(

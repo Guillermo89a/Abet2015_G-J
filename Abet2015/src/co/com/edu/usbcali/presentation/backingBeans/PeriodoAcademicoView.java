@@ -105,43 +105,55 @@ public class PeriodoAcademicoView {
         return "";
     }
 
-    public void listener_txtId() {
-        PeriodoAcademico entity = null;
+//    public void listener_txtId() {
+//        PeriodoAcademico entity = null;
+//
+//        try {
+//            Long idPeriodoAcademico = new Long(txtIdPeriodoAcademico.getValue()
+//                                                                    .toString());
+//            entity = businessDelegatorView.getPeriodoAcademico(idPeriodoAcademico);
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
+//
+//        if (entity == null) {
+//            txtDescripcionPeriodo.setDisabled(false);
+//            txtIdPeriodoAcademico.setDisabled(false);
+//            btnSave.setDisabled(false);
+//            btnDelete.setDisabled(true);
+//            btnModify.setDisabled(true);
+//            btnClear.setDisabled(false);
+//        } else {
+//            txtDescripcionPeriodo.setValue(entity.getDescripcionPeriodo());
+//            txtDescripcionPeriodo.setDisabled(false);
+//            txtIdPeriodoAcademico.setValue(entity.getIdPeriodoAcademico());
+//            txtIdPeriodoAcademico.setDisabled(true);
+//            btnSave.setDisabled(true);
+//            btnDelete.setDisabled(false);
+//            btnModify.setDisabled(false);
+//            btnClear.setDisabled(false);
+//        }
+//    }
 
-        try {
-            Long idPeriodoAcademico = new Long(txtIdPeriodoAcademico.getValue()
-                                                                    .toString());
-            entity = businessDelegatorView.getPeriodoAcademico(idPeriodoAcademico);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        if (entity == null) {
-            txtDescripcionPeriodo.setDisabled(false);
-            txtIdPeriodoAcademico.setDisabled(false);
-            btnSave.setDisabled(false);
-            btnDelete.setDisabled(true);
-            btnModify.setDisabled(true);
-            btnClear.setDisabled(false);
-        } else {
-            txtDescripcionPeriodo.setValue(entity.getDescripcionPeriodo());
-            txtDescripcionPeriodo.setDisabled(false);
-            txtIdPeriodoAcademico.setValue(entity.getIdPeriodoAcademico());
-            txtIdPeriodoAcademico.setDisabled(true);
-            btnSave.setDisabled(true);
-            btnDelete.setDisabled(false);
-            btnModify.setDisabled(false);
-            btnClear.setDisabled(false);
-        }
-    }
-
+//    public String action_save() {
+//        try {
+//            businessDelegatorView.savePeriodoAcademico(FacesUtils.checkString(
+//                    txtDescripcionPeriodo),
+//                FacesUtils.checkLong(txtIdPeriodoAcademico));
+//            FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
+//            action_clear();
+//        } catch (Exception e) {
+//            FacesUtils.addErrorMessage(e.getMessage());
+//        }
+//
+//        return "";
+//    }
+    
     public String action_save() {
         try {
             businessDelegatorView.savePeriodoAcademico(FacesUtils.checkString(
-                    txtDescripcionPeriodo),
-                FacesUtils.checkLong(txtIdPeriodoAcademico));
+                    txtDescripcionPeriodo));
             FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
-            action_clear();
         } catch (Exception e) {
             FacesUtils.addErrorMessage(e.getMessage());
         }

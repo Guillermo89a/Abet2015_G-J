@@ -21,8 +21,11 @@ public interface IOutcomeLogic {
     /**
          * Save an new Outcome entity
          */
-    public void saveOutcome(String detalle, Long idOutcome)
+    public void saveOutcome(String detalle)
         throws Exception;
+    
+//    public void saveOutcome(String detalle, Long idOutcome)
+//            throws Exception;
 
     /**
          * Delete an existing Outcome entity

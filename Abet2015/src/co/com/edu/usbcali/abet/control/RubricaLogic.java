@@ -73,22 +73,53 @@ public class RubricaLogic implements IRubricaLogic {
         return list;
     }
 
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void saveRubrica(Long idRubrica, String nombreRubrica)
+//        throws Exception {
+//        Rubrica entity = null;
+//
+//        try {
+//            if (idRubrica == null) {
+//                throw new ZMessManager().new EmptyFieldException("idRubrica");
+//            }
+//
+//            if ((idRubrica != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idRubrica, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idRubrica");
+//            }
+//
+//            if ((nombreRubrica != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(nombreRubrica, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "nombreRubrica");
+//            }
+//
+//            entity = getRubrica(idRubrica);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Rubrica();
+//            entity.setIdRubrica(idRubrica);
+//            entity.setNombreRubrica(nombreRubrica);
+//            rubricaDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
+
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void saveRubrica(Long idRubrica, String nombreRubrica)
+    public void saveRubrica(String nombreRubrica)
         throws Exception {
         Rubrica entity = null;
 
         try {
-            if (idRubrica == null) {
-                throw new ZMessManager().new EmptyFieldException("idRubrica");
-            }
-
-            if ((idRubrica != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idRubrica, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idRubrica");
-            }
+          
 
             if ((nombreRubrica != null) &&
                     (Utilities.checkWordAndCheckWithlength(nombreRubrica, 100) == false)) {
@@ -96,14 +127,14 @@ public class RubricaLogic implements IRubricaLogic {
                     "nombreRubrica");
             }
 
-            entity = getRubrica(idRubrica);
+        
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
             }
 
             entity = new Rubrica();
-            entity.setIdRubrica(idRubrica);
+   
             entity.setNombreRubrica(nombreRubrica);
             rubricaDAO.save(entity);
         } catch (Exception e) {
@@ -111,7 +142,8 @@ public class RubricaLogic implements IRubricaLogic {
         } finally {
         }
     }
-
+    
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void deleteRubrica(Long idRubrica) throws Exception {
         Rubrica entity = null;

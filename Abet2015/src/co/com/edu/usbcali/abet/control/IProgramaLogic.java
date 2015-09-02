@@ -21,8 +21,11 @@ public interface IProgramaLogic {
     /**
          * Save an new Programa entity
          */
-    public void savePrograma(String descripcion, Long idPrograma)
-        throws Exception;
+//    public void savePrograma(String descripcion, Long idPrograma)
+//        throws Exception;
+    
+    public void savePrograma(String descripcion)
+            throws Exception;
 
     /**
          * Delete an existing Programa entity

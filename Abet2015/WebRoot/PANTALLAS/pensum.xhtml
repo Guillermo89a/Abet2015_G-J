@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>		
+	
+	<h:body>
+		 	
+			<f:view>
+		
+		<h:form>
+			<div align="center">
+               <h:link id="cmdBack" outcome="goInitialMenu" value="Ingrese Informacion del Pensum" style="color:blue;" />
+			 </div>
+			<p:panel id="msgProjectPensumTitle" header="Pensum" >
+			   <p:messages id="msg" showDetail="true"/>
+			   <p:growl id="men"/>
+			       <h:panelGrid columns="2" id="panel" >
+												
+																		
+												<h:outputText id="msgCreditos" value=" Creditos"/>
+						<p:inputText id="txtCreditos" disabled="false" binding="#{pensumView.txtCreditos}"/>
+												<h:outputText id="msgSemestre" value=" Semestre"/>
+						<p:inputText id="txtSemestre" disabled="false" binding="#{pensumView.txtSemestre}"/>
+												
+												
+												
+				   </h:panelGrid>
+				   
+				   <h:panelGrid id="panelBotones" columns="4">
+					
+						<p:commandButton id="btnSave" disabled="false" value="Save" action="#{pensumView.action_save}" update="msg,panel,panelBotones"          binding="#{pensumView.btnSave}" />
+						
+				   
+				   </h:panelGrid>
+					
+			</p:panel>
+			
+		</h:form>
+		 </f:view>
+	 </ui:define>	  
+	
+	  <ui:define name="footer">
+		 <ui:include src="/WEB-INF/facelets/footer.jspx" />
+	   </ui:define>	
+	</ui:composition>	
+	
+	</h:body>	
+
+</html>	

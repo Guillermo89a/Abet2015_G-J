@@ -67,7 +67,7 @@ public class ProgramaLogic implements IProgramaLogic {
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void savePrograma(String descripcion, Long idPrograma)
+    public void savePrograma(String descripcion)
         throws Exception {
         Programa entity = null;
 
@@ -78,32 +78,60 @@ public class ProgramaLogic implements IProgramaLogic {
                     "descripcion");
             }
 
-            if (idPrograma == null) {
-                throw new ZMessManager().new EmptyFieldException("idPrograma");
-            }
-
-            if ((idPrograma != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idPrograma, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idPrograma");
-            }
-
-            entity = getPrograma(idPrograma);
-
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
             }
 
             entity = new Programa();
             entity.setDescripcion(descripcion);
-            entity.setIdPrograma(idPrograma);
+      
             programaDAO.save(entity);
         } catch (Exception e) {
             throw e;
         } finally {
         }
     }
+
+    
+    
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void savePrograma(String descripcion, Long idPrograma)
+//        throws Exception {
+//        Programa entity = null;
+//
+//        try {
+//            if ((descripcion != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(descripcion, 200) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "descripcion");
+//            }
+//
+//            if (idPrograma == null) {
+//                throw new ZMessManager().new EmptyFieldException("idPrograma");
+//            }
+//
+//            if ((idPrograma != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idPrograma, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idPrograma");
+//            }
+//
+//            entity = getPrograma(idPrograma);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Programa();
+//            entity.setDescripcion(descripcion);
+//            entity.setIdPrograma(idPrograma);
+//            programaDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void deletePrograma(Long idPrograma) throws Exception {

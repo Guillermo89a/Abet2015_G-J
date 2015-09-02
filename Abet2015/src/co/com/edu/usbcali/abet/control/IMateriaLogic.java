@@ -20,9 +20,13 @@ public interface IMateriaLogic {
 
     /**
          * Save an new Materia entity
-         */
-    public void saveMateria(String creditos, Long idCodigoMateria, String nombre)
-        throws Exception;
+//         */
+//    public void saveMateria(String creditos, Long idCodigoMateria, String nombre)
+//        throws Exception;
+    
+    
+   public void saveMateria(String creditos, String nombre)
+       throws Exception;
 
     /**
          * Delete an existing Materia entity

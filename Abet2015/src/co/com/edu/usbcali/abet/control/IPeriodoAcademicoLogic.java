@@ -22,8 +22,10 @@ public interface IPeriodoAcademicoLogic {
     /**
          * Save an new PeriodoAcademico entity
          */
-    public void savePeriodoAcademico(String descripcionPeriodo,
-        Long idPeriodoAcademico) throws Exception;
+//    public void savePeriodoAcademico(String descripcionPeriodo,
+//        Long idPeriodoAcademico) throws Exception;
+    
+    public void savePeriodoAcademico(String descripcionPeriodo) throws Exception;
 
     /**
          * Delete an existing PeriodoAcademico entity

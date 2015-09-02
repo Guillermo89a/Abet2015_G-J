@@ -105,42 +105,53 @@ public class RubricaView {
         return "";
     }
 
-    public void listener_txtId() {
-        Rubrica entity = null;
+//    public void listener_txtId() {
+//        Rubrica entity = null;
+//
+//        try {
+//            Long idRubrica = new Long(txtIdRubrica.getValue().toString());
+//            entity = businessDelegatorView.getRubrica(idRubrica);
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
+//
+//        if (entity == null) {
+//            txtNombreRubrica.setDisabled(false);
+//            txtIdRubrica.setDisabled(false);
+//            btnSave.setDisabled(false);
+//            btnDelete.setDisabled(true);
+//            btnModify.setDisabled(true);
+//            btnClear.setDisabled(false);
+//        } else {
+//            txtNombreRubrica.setValue(entity.getNombreRubrica());
+//            txtNombreRubrica.setDisabled(false);
+//            txtIdRubrica.setValue(entity.getIdRubrica());
+//            txtIdRubrica.setDisabled(true);
+//            btnSave.setDisabled(true);
+//            btnDelete.setDisabled(false);
+//            btnModify.setDisabled(false);
+//            btnClear.setDisabled(false);
+//        }
+//    }
 
-        try {
-            Long idRubrica = new Long(txtIdRubrica.getValue().toString());
-            entity = businessDelegatorView.getRubrica(idRubrica);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        if (entity == null) {
-            txtNombreRubrica.setDisabled(false);
-            txtIdRubrica.setDisabled(false);
-            btnSave.setDisabled(false);
-            btnDelete.setDisabled(true);
-            btnModify.setDisabled(true);
-            btnClear.setDisabled(false);
-        } else {
-            txtNombreRubrica.setValue(entity.getNombreRubrica());
-            txtNombreRubrica.setDisabled(false);
-            txtIdRubrica.setValue(entity.getIdRubrica());
-            txtIdRubrica.setDisabled(true);
-            btnSave.setDisabled(true);
-            btnDelete.setDisabled(false);
-            btnModify.setDisabled(false);
-            btnClear.setDisabled(false);
-        }
-    }
-
+//    public String action_save() {
+//        try {
+//            businessDelegatorView.saveRubrica(FacesUtils.checkLong(txtIdRubrica),
+//                FacesUtils.checkString(txtNombreRubrica));
+//            FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
+//            action_clear();
+//        } catch (Exception e) {
+//            FacesUtils.addErrorMessage(e.getMessage());
+//        }
+//
+//        return "";
+//    }
+    
     public String action_save() {
         try {
-            businessDelegatorView.saveRubrica(FacesUtils.checkLong(txtIdRubrica),
-                FacesUtils.checkString(txtNombreRubrica));
+            businessDelegatorView.saveRubrica(FacesUtils.checkString(txtNombreRubrica));
             FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
-            action_clear();
-        } catch (Exception e) {
+           } catch (Exception e) {
             FacesUtils.addErrorMessage(e.getMessage());
         }
 
