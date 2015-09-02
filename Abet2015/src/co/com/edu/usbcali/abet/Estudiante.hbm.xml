@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/09/2015 07:32:31 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="co.com.edu.usbcali.abet.Estudiante" table="ESTUDIANTE" schema="TESIS">
+        <id name="idCodigoEstudiante" type="java.lang.Long">
+            <column name="ID_CODIGO_ESTUDIANTE" precision="22" scale="0" />
+              <generator class="sequence" >
+            <param name="sequence">SEQUENCE_ESTUDIANTE</param>
+           </generator>
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" length="200" />
+        </property>
+        <property name="direccion" type="java.lang.String">
+            <column name="DIRECCION" length="100" />
+        </property>
+        <property name="telefono" type="java.lang.String">
+            <column name="TELEFONO" length="15" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" length="100" />
+        </property>
+        <set name="listaSepias" inverse="true" lazy="true" table="LISTA_SEPIA" fetch="select">
+            <key>
+                <column name="ID_CODIGO_ESTUDIANTE" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.com.edu.usbcali.abet.ListaSepia" />
+        </set>
+        <set name="evaluacions" inverse="true" lazy="true" table="EVALUACION" fetch="select">
+            <key>
+                <column name="ID_CODIGO_ESTUDIANTE" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.com.edu.usbcali.abet.Evaluacion" />
+        </set>
+    </class>
+</hibernate-mapping>

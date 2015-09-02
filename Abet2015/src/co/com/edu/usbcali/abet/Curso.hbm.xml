@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/09/2015 07:32:31 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="co.com.edu.usbcali.abet.Curso" table="CURSO" schema="TESIS">
+        <id name="idCurso" type="java.lang.Long">
+            <column name="ID_CURSO" precision="22" scale="0" />
+           <generator class="sequence" >
+            <param name="sequence">SEQUENCE_CURSO</param>
+           </generator>
+        </id>
+        <many-to-one name="docente" class="co.com.edu.usbcali.abet.Docente" fetch="select">
+            <column name="ID_CODIGO_DOCENTE" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="materia" class="co.com.edu.usbcali.abet.Materia" fetch="select">
+            <column name="ID_CODIGO_MATERIA" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="periodoAcademico" class="co.com.edu.usbcali.abet.PeriodoAcademico" fetch="select">
+            <column name="ID_PERIODO_ACADEMICO" precision="22" scale="0" />
+        </many-to-one>
+        <property name="nombreCurso" type="java.lang.String">
+            <column name="NOMBRE_CURSO" length="100" />
+        </property>
+        <set name="rubricaPorCursos" inverse="true" lazy="true" table="RUBRICA_POR_CURSO" fetch="select">
+            <key>
+                <column name="ID_CURSO" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.com.edu.usbcali.abet.RubricaPorCurso" />
+        </set>
+        <set name="outcomePorCursos" inverse="true" lazy="true" table="OUTCOME_POR_CURSO" fetch="select">
+            <key>
+                <column name="ID_CURSO" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.com.edu.usbcali.abet.OutcomePorCurso" />
+        </set>
+        <set name="listaSepias" inverse="true" lazy="true" table="LISTA_SEPIA" fetch="select">
+            <key>
+                <column name="ID_CURSO" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.com.edu.usbcali.abet.ListaSepia" />
+        </set>
+        <set name="evaluacions" inverse="true" lazy="true" table="EVALUACION" fetch="select">
+            <key>
+                <column name="ID_CURSO" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.com.edu.usbcali.abet.Evaluacion" />
+        </set>
+    </class>
+</hibernate-mapping>

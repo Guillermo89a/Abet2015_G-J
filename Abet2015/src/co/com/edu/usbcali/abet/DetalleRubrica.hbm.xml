@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/09/2015 07:32:31 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="co.com.edu.usbcali.abet.DetalleRubrica" table="DETALLE_RUBRICA" schema="TESIS">
+        <id name="idDetalleRubrica" type="java.lang.Long">
+            <column name="ID_DETALLE_RUBRICA" precision="22" scale="0" />
+           <generator class="sequence" >
+            <param name="sequence">SEQUENCE_DETALLE_RUBRICA</param>
+           </generator>
+        </id>
+        <many-to-one name="rubrica" class="co.com.edu.usbcali.abet.Rubrica" fetch="select">
+            <column name="ID_RUBRICA" precision="22" scale="0" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
