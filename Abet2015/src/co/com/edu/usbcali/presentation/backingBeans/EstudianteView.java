@@ -141,50 +141,65 @@ public class EstudianteView {
         return "";
     }
 
-    public void listener_txtId() {
-        Estudiante entity = null;
+//    public void listener_txtId() {
+//        Estudiante entity = null;
+//
+//        try {
+//            Long idCodigoEstudiante = new Long(txtIdCodigoEstudiante.getValue()
+//                                                                    .toString());
+//            entity = businessDelegatorView.getEstudiante(idCodigoEstudiante);
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
+//
+//        if (entity == null) {
+//            txtDireccion.setDisabled(false);
+//            txtEmail.setDisabled(false);
+//            txtNombre.setDisabled(false);
+//            txtTelefono.setDisabled(false);
+//            txtIdCodigoEstudiante.setDisabled(false);
+//            btnSave.setDisabled(false);
+//            btnDelete.setDisabled(true);
+//            btnModify.setDisabled(true);
+//            btnClear.setDisabled(false);
+//        } else {
+//            txtDireccion.setValue(entity.getDireccion());
+//            txtDireccion.setDisabled(false);
+//            txtEmail.setValue(entity.getEmail());
+//            txtEmail.setDisabled(false);
+//            txtNombre.setValue(entity.getNombre());
+//            txtNombre.setDisabled(false);
+//            txtTelefono.setValue(entity.getTelefono());
+//            txtTelefono.setDisabled(false);
+//            txtIdCodigoEstudiante.setValue(entity.getIdCodigoEstudiante());
+//            txtIdCodigoEstudiante.setDisabled(true);
+//            btnSave.setDisabled(true);
+//            btnDelete.setDisabled(false);
+//            btnModify.setDisabled(false);
+//            btnClear.setDisabled(false);
+//        }
+//    }
 
-        try {
-            Long idCodigoEstudiante = new Long(txtIdCodigoEstudiante.getValue()
-                                                                    .toString());
-            entity = businessDelegatorView.getEstudiante(idCodigoEstudiante);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        if (entity == null) {
-            txtDireccion.setDisabled(false);
-            txtEmail.setDisabled(false);
-            txtNombre.setDisabled(false);
-            txtTelefono.setDisabled(false);
-            txtIdCodigoEstudiante.setDisabled(false);
-            btnSave.setDisabled(false);
-            btnDelete.setDisabled(true);
-            btnModify.setDisabled(true);
-            btnClear.setDisabled(false);
-        } else {
-            txtDireccion.setValue(entity.getDireccion());
-            txtDireccion.setDisabled(false);
-            txtEmail.setValue(entity.getEmail());
-            txtEmail.setDisabled(false);
-            txtNombre.setValue(entity.getNombre());
-            txtNombre.setDisabled(false);
-            txtTelefono.setValue(entity.getTelefono());
-            txtTelefono.setDisabled(false);
-            txtIdCodigoEstudiante.setValue(entity.getIdCodigoEstudiante());
-            txtIdCodigoEstudiante.setDisabled(true);
-            btnSave.setDisabled(true);
-            btnDelete.setDisabled(false);
-            btnModify.setDisabled(false);
-            btnClear.setDisabled(false);
-        }
-    }
-
+//    public String action_save() {
+//        try {
+//            businessDelegatorView.saveEstudiante(FacesUtils.checkString(
+//                    txtDireccion), FacesUtils.checkString(txtEmail),
+//                FacesUtils.checkLong(txtIdCodigoEstudiante),
+//                FacesUtils.checkString(txtNombre),
+//                FacesUtils.checkString(txtTelefono));
+//            FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
+//            action_clear();
+//        } catch (Exception e) {
+//            FacesUtils.addErrorMessage(e.getMessage());
+//        }
+//
+//        return "";
+//    }
+    
     public String action_save() {
         try {
             businessDelegatorView.saveEstudiante(FacesUtils.checkString(
                     txtDireccion), FacesUtils.checkString(txtEmail),
-                FacesUtils.checkLong(txtIdCodigoEstudiante),
                 FacesUtils.checkString(txtNombre),
                 FacesUtils.checkString(txtTelefono));
             FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);

@@ -21,9 +21,11 @@ public interface ICursoLogic {
     /**
          * Save an new Curso entity
          */
-    public void saveCurso(Long idCurso, String nombreCurso,
-        Long idCodigoDocente_Docente, Long idCodigoMateria_Materia,
-        Long idPeriodoAcademico_PeriodoAcademico) throws Exception;
+//    public void saveCurso(Long idCurso, String nombreCurso,
+//        Long idCodigoDocente_Docente, Long idCodigoMateria_Materia,
+//        Long idPeriodoAcademico_PeriodoAcademico) throws Exception;
+    
+    public void saveCurso(String nombreCurso) throws Exception;
 
     /**
          * Delete an existing Curso entity

@@ -21,8 +21,11 @@ public interface IDocenteLogic {
     /**
          * Save an new Docente entity
          */
-    public void saveDocente(Long idCodigoDocente, String nombreDocente)
-        throws Exception;
+//    public void saveDocente(Long idCodigoDocente, String nombreDocente)
+//        throws Exception;
+    
+    public void saveDocente(String nombreDocente)
+            throws Exception;
 
     /**
          * Delete an existing Docente entity

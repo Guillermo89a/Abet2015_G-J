@@ -105,40 +105,53 @@ public class DocenteView {
         return "";
     }
 
-    public void listener_txtId() {
-        Docente entity = null;
+//    public void listener_txtId() {
+//        Docente entity = null;
+//
+//        try {
+//            Long idCodigoDocente = new Long(txtIdCodigoDocente.getValue()
+//                                                              .toString());
+//            entity = businessDelegatorView.getDocente(idCodigoDocente);
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
+//
+//        if (entity == null) {
+//            txtNombreDocente.setDisabled(false);
+//            txtIdCodigoDocente.setDisabled(false);
+//            btnSave.setDisabled(false);
+//            btnDelete.setDisabled(true);
+//            btnModify.setDisabled(true);
+//            btnClear.setDisabled(false);
+//        } else {
+//            txtNombreDocente.setValue(entity.getNombreDocente());
+//            txtNombreDocente.setDisabled(false);
+//            txtIdCodigoDocente.setValue(entity.getIdCodigoDocente());
+//            txtIdCodigoDocente.setDisabled(true);
+//            btnSave.setDisabled(true);
+//            btnDelete.setDisabled(false);
+//            btnModify.setDisabled(false);
+//            btnClear.setDisabled(false);
+//        }
+//    }
 
-        try {
-            Long idCodigoDocente = new Long(txtIdCodigoDocente.getValue()
-                                                              .toString());
-            entity = businessDelegatorView.getDocente(idCodigoDocente);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        if (entity == null) {
-            txtNombreDocente.setDisabled(false);
-            txtIdCodigoDocente.setDisabled(false);
-            btnSave.setDisabled(false);
-            btnDelete.setDisabled(true);
-            btnModify.setDisabled(true);
-            btnClear.setDisabled(false);
-        } else {
-            txtNombreDocente.setValue(entity.getNombreDocente());
-            txtNombreDocente.setDisabled(false);
-            txtIdCodigoDocente.setValue(entity.getIdCodigoDocente());
-            txtIdCodigoDocente.setDisabled(true);
-            btnSave.setDisabled(true);
-            btnDelete.setDisabled(false);
-            btnModify.setDisabled(false);
-            btnClear.setDisabled(false);
-        }
-    }
-
+//    public String action_save() {
+//        try {
+//            businessDelegatorView.saveDocente(FacesUtils.checkLong(
+//                    txtIdCodigoDocente),
+//                FacesUtils.checkString(txtNombreDocente));
+//            FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
+//            action_clear();
+//        } catch (Exception e) {
+//            FacesUtils.addErrorMessage(e.getMessage());
+//        }
+//
+//        return "";
+//    }
+    
     public String action_save() {
         try {
-            businessDelegatorView.saveDocente(FacesUtils.checkLong(
-                    txtIdCodigoDocente),
+            businessDelegatorView.saveDocente(
                 FacesUtils.checkString(txtNombreDocente));
             FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
             action_clear();

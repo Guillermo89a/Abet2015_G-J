@@ -60,37 +60,26 @@ public class DocenteLogic implements IDocenteLogic {
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void saveDocente(Long idCodigoDocente, String nombreDocente)
+    public void saveDocente(String nombreDocente)
         throws Exception {
         Docente entity = null;
 
         try {
-            if (idCodigoDocente == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idCodigoDocente");
-            }
-
-            if ((idCodigoDocente != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCodigoDocente, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idCodigoDocente");
-            }
-
+            
             if ((nombreDocente != null) &&
                     (Utilities.checkWordAndCheckWithlength(nombreDocente, 100) == false)) {
                 throw new ZMessManager().new NotValidFormatException(
                     "nombreDocente");
             }
 
-            entity = getDocente(idCodigoDocente);
+
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
             }
 
             entity = new Docente();
-            entity.setIdCodigoDocente(idCodigoDocente);
+
             entity.setNombreDocente(nombreDocente);
             docenteDAO.save(entity);
         } catch (Exception e) {
@@ -98,6 +87,47 @@ public class DocenteLogic implements IDocenteLogic {
         } finally {
         }
     }
+    
+    
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void saveDocente(Long idCodigoDocente, String nombreDocente)
+//        throws Exception {
+//        Docente entity = null;
+//
+//        try {
+//            if (idCodigoDocente == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idCodigoDocente");
+//            }
+//
+//            if ((idCodigoDocente != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCodigoDocente, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idCodigoDocente");
+//            }
+//
+//            if ((nombreDocente != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(nombreDocente, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "nombreDocente");
+//            }
+//
+//            entity = getDocente(idCodigoDocente);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Docente();
+//            entity.setIdCodigoDocente(idCodigoDocente);
+//            entity.setNombreDocente(nombreDocente);
+//            docenteDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void deleteDocente(Long idCodigoDocente) throws Exception {

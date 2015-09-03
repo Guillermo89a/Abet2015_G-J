@@ -165,12 +165,18 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return assesmentLogic.getAssesment();
     }
 
-    public void saveAssesment(Long calificacion, Long idCodigoAssesment,
-        Long idListaSepia_ListaSepia, Long idRubricaPorCurso_RubricaPorCurso)
-        throws Exception {
-        assesmentLogic.saveAssesment(calificacion, idCodigoAssesment,
-            idListaSepia_ListaSepia, idRubricaPorCurso_RubricaPorCurso);
-    }
+//    public void saveAssesment(Long calificacion, Long idCodigoAssesment,
+//        Long idListaSepia_ListaSepia, Long idRubricaPorCurso_RubricaPorCurso)
+//        throws Exception {
+//        assesmentLogic.saveAssesment(calificacion, idCodigoAssesment,
+//            idListaSepia_ListaSepia, idRubricaPorCurso_RubricaPorCurso);
+//    }
+    
+    public void saveAssesment(Long calificacion)
+            throws Exception {
+            assesmentLogic.saveAssesment(calificacion);
+        }
+
 
     public void deleteAssesment(Long idCodigoAssesment)
         throws Exception {
@@ -223,11 +229,16 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return categoriaLogic.getCategoria();
     }
 
-    public void saveCategoria(Long idCategoria, String nombrecategoria,
-        Long idRubrica_Rubrica) throws Exception {
-        categoriaLogic.saveCategoria(idCategoria, nombrecategoria,
-            idRubrica_Rubrica);
-    }
+//    public void saveCategoria(Long idCategoria, String nombrecategoria,
+//        Long idRubrica_Rubrica) throws Exception {
+//        categoriaLogic.saveCategoria(idCategoria, nombrecategoria,
+//            idRubrica_Rubrica);
+//    }
+    
+    public void saveCategoria(String nombrecategoria) throws Exception {
+            categoriaLogic.saveCategoria(nombrecategoria);
+        }
+
 
     public void deleteCategoria(Long idCategoria) throws Exception {
         categoriaLogic.deleteCategoria(idCategoria);
@@ -277,12 +288,16 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return cursoLogic.getCurso();
     }
 
-    public void saveCurso(Long idCurso, String nombreCurso,
-        Long idCodigoDocente_Docente, Long idCodigoMateria_Materia,
-        Long idPeriodoAcademico_PeriodoAcademico) throws Exception {
-        cursoLogic.saveCurso(idCurso, nombreCurso, idCodigoDocente_Docente,
-            idCodigoMateria_Materia, idPeriodoAcademico_PeriodoAcademico);
-    }
+//    public void saveCurso(Long idCurso, String nombreCurso,
+//        Long idCodigoDocente_Docente, Long idCodigoMateria_Materia,
+//        Long idPeriodoAcademico_PeriodoAcademico) throws Exception {
+//        cursoLogic.saveCurso(idCurso, nombreCurso, idCodigoDocente_Docente,
+//            idCodigoMateria_Materia, idPeriodoAcademico_PeriodoAcademico);
+//    }
+    
+    public void saveCurso(String nombreCurso) throws Exception {
+            cursoLogic.saveCurso(nombreCurso);
+        }
 
     public void deleteCurso(Long idCurso) throws Exception {
         cursoLogic.deleteCurso(idCurso);
@@ -390,10 +405,15 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return docenteLogic.getDocente();
     }
 
-    public void saveDocente(Long idCodigoDocente, String nombreDocente)
-        throws Exception {
-        docenteLogic.saveDocente(idCodigoDocente, nombreDocente);
-    }
+//    public void saveDocente(Long idCodigoDocente, String nombreDocente)
+//        throws Exception {
+//        docenteLogic.saveDocente(idCodigoDocente, nombreDocente);
+//    }
+    
+    public void saveDocente(String nombreDocente)
+            throws Exception {
+            docenteLogic.saveDocente(nombreDocente);
+        }
 
     public void deleteDocente(Long idCodigoDocente) throws Exception {
         docenteLogic.deleteDocente(idCodigoDocente);
@@ -442,13 +462,20 @@ public class BusinessDelegatorView implements IBusinessDelegatorView {
         return estudianteLogic.getEstudiante();
     }
 
-    public void saveEstudiante(String direccion, String email,
-        Long idCodigoEstudiante, String nombre, String telefono)
-        throws Exception {
-        estudianteLogic.saveEstudiante(direccion, email, idCodigoEstudiante,
-            nombre, telefono);
-    }
+//    public void saveEstudiante(String direccion, String email,
+//        Long idCodigoEstudiante, String nombre, String telefono)
+//        throws Exception {
+//        estudianteLogic.saveEstudiante(direccion, email, idCodigoEstudiante,
+//            nombre, telefono);
+//    }
 
+    public void saveEstudiante(String direccion, String email,
+           String nombre, String telefono)
+            throws Exception {
+            estudianteLogic.saveEstudiante(direccion, email, 
+                nombre, telefono);
+        }
+    
     public void deleteEstudiante(Long idCodigoEstudiante)
         throws Exception {
         estudianteLogic.deleteEstudiante(idCodigoEstudiante);

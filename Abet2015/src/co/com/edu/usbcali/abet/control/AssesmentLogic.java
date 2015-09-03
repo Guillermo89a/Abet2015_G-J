@@ -66,9 +66,91 @@ public class AssesmentLogic implements IAssesmentLogic {
         return list;
     }
 
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void saveAssesment(Long calificacion, Long idCodigoAssesment,
+//        Long idListaSepia_ListaSepia, Long idRubricaPorCurso_RubricaPorCurso)
+//        throws Exception {
+//        Assesment entity = null;
+//
+//        try {
+//            if (calificacion == null) {
+//                throw new ZMessManager().new EmptyFieldException("calificacion");
+//            }
+//
+//            if ((calificacion != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        calificacion, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "calificacion");
+//            }
+//
+//            if (idCodigoAssesment == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idCodigoAssesment");
+//            }
+//
+//            if ((idCodigoAssesment != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCodigoAssesment, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idCodigoAssesment");
+//            }
+//
+//            if (idListaSepia_ListaSepia == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idListaSepia_ListaSepia");
+//            }
+//
+//            if ((idListaSepia_ListaSepia != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idListaSepia_ListaSepia, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idListaSepia_ListaSepia");
+//            }
+//
+//            if (idRubricaPorCurso_RubricaPorCurso == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idRubricaPorCurso_RubricaPorCurso");
+//            }
+//
+//            if ((idRubricaPorCurso_RubricaPorCurso != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idRubricaPorCurso_RubricaPorCurso, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idRubricaPorCurso_RubricaPorCurso");
+//            }
+//
+//            ListaSepia listaSepiaClass = logicListaSepia1.getListaSepia(idListaSepia_ListaSepia);
+//            RubricaPorCurso rubricaPorCursoClass = logicRubricaPorCurso2.getRubricaPorCurso(idRubricaPorCurso_RubricaPorCurso);
+//
+//            if (listaSepiaClass == null) {
+//                throw new ZMessManager().new ForeignException("listaSepia");
+//            }
+//
+//            if (rubricaPorCursoClass == null) {
+//                throw new ZMessManager().new ForeignException("rubricaPorCurso");
+//            }
+//
+//            entity = getAssesment(idCodigoAssesment);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Assesment();
+//            entity.setCalificacion(calificacion);
+//            entity.setIdCodigoAssesment(idCodigoAssesment);
+//            entity.setListaSepia(listaSepiaClass);
+//            entity.setRubricaPorCurso(rubricaPorCursoClass);
+//            assesmentDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void saveAssesment(Long calificacion, Long idCodigoAssesment,
-        Long idListaSepia_ListaSepia, Long idRubricaPorCurso_RubricaPorCurso)
+    public void saveAssesment(Long calificacion)
         throws Exception {
         Assesment entity = null;
 
@@ -84,54 +166,8 @@ public class AssesmentLogic implements IAssesmentLogic {
                     "calificacion");
             }
 
-            if (idCodigoAssesment == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idCodigoAssesment");
-            }
-
-            if ((idCodigoAssesment != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCodigoAssesment, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idCodigoAssesment");
-            }
-
-            if (idListaSepia_ListaSepia == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idListaSepia_ListaSepia");
-            }
-
-            if ((idListaSepia_ListaSepia != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idListaSepia_ListaSepia, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idListaSepia_ListaSepia");
-            }
-
-            if (idRubricaPorCurso_RubricaPorCurso == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idRubricaPorCurso_RubricaPorCurso");
-            }
-
-            if ((idRubricaPorCurso_RubricaPorCurso != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idRubricaPorCurso_RubricaPorCurso, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idRubricaPorCurso_RubricaPorCurso");
-            }
-
-            ListaSepia listaSepiaClass = logicListaSepia1.getListaSepia(idListaSepia_ListaSepia);
-            RubricaPorCurso rubricaPorCursoClass = logicRubricaPorCurso2.getRubricaPorCurso(idRubricaPorCurso_RubricaPorCurso);
-
-            if (listaSepiaClass == null) {
-                throw new ZMessManager().new ForeignException("listaSepia");
-            }
-
-            if (rubricaPorCursoClass == null) {
-                throw new ZMessManager().new ForeignException("rubricaPorCurso");
-            }
-
-            entity = getAssesment(idCodigoAssesment);
+            
+          
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
@@ -139,9 +175,6 @@ public class AssesmentLogic implements IAssesmentLogic {
 
             entity = new Assesment();
             entity.setCalificacion(calificacion);
-            entity.setIdCodigoAssesment(idCodigoAssesment);
-            entity.setListaSepia(listaSepiaClass);
-            entity.setRubricaPorCurso(rubricaPorCursoClass);
             assesmentDAO.save(entity);
         } catch (Exception e) {
             throw e;

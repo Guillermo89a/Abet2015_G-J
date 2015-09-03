@@ -21,9 +21,13 @@ public interface IAssesmentLogic {
     /**
          * Save an new Assesment entity
          */
-    public void saveAssesment(Long calificacion, Long idCodigoAssesment,
-        Long idListaSepia_ListaSepia, Long idRubricaPorCurso_RubricaPorCurso)
-        throws Exception;
+//    public void saveAssesment(Long calificacion, Long idCodigoAssesment,
+//        Long idListaSepia_ListaSepia, Long idRubricaPorCurso_RubricaPorCurso)
+//        throws Exception;
+    
+    public void saveAssesment(Long calificacion)
+            throws Exception;
+
 
     /**
          * Delete an existing Assesment entity

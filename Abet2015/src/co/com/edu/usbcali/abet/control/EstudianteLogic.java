@@ -66,9 +66,69 @@ public class EstudianteLogic implements IEstudianteLogic {
         return list;
     }
 
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void saveEstudiante(String direccion, String email,
+//        Long idCodigoEstudiante, String nombre, String telefono)
+//        throws Exception {
+//        Estudiante entity = null;
+//
+//        try {
+//            if ((direccion != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(direccion, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "direccion");
+//            }
+//
+//            if ((email != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(email, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("email");
+//            }
+//
+//            if (idCodigoEstudiante == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idCodigoEstudiante");
+//            }
+//
+//            if ((idCodigoEstudiante != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCodigoEstudiante, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idCodigoEstudiante");
+//            }
+//
+//            if ((nombre != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(nombre, 200) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("nombre");
+//            }
+//
+//            if ((telefono != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(telefono, 15) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("telefono");
+//            }
+//
+//            entity = getEstudiante(idCodigoEstudiante);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Estudiante();
+//            entity.setDireccion(direccion);
+//            entity.setEmail(email);
+//            entity.setIdCodigoEstudiante(idCodigoEstudiante);
+//            entity.setNombre(nombre);
+//            entity.setTelefono(telefono);
+//            estudianteDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
+
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void saveEstudiante(String direccion, String email,
-        Long idCodigoEstudiante, String nombre, String telefono)
+       String nombre, String telefono)
         throws Exception {
         Estudiante entity = null;
 
@@ -84,17 +144,6 @@ public class EstudianteLogic implements IEstudianteLogic {
                 throw new ZMessManager().new NotValidFormatException("email");
             }
 
-            if (idCodigoEstudiante == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idCodigoEstudiante");
-            }
-
-            if ((idCodigoEstudiante != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCodigoEstudiante, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idCodigoEstudiante");
-            }
 
             if ((nombre != null) &&
                     (Utilities.checkWordAndCheckWithlength(nombre, 200) == false)) {
@@ -106,7 +155,7 @@ public class EstudianteLogic implements IEstudianteLogic {
                 throw new ZMessManager().new NotValidFormatException("telefono");
             }
 
-            entity = getEstudiante(idCodigoEstudiante);
+
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
@@ -115,7 +164,7 @@ public class EstudianteLogic implements IEstudianteLogic {
             entity = new Estudiante();
             entity.setDireccion(direccion);
             entity.setEmail(email);
-            entity.setIdCodigoEstudiante(idCodigoEstudiante);
+
             entity.setNombre(nombre);
             entity.setTelefono(telefono);
             estudianteDAO.save(entity);
@@ -124,7 +173,8 @@ public class EstudianteLogic implements IEstudianteLogic {
         } finally {
         }
     }
-
+    
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void deleteEstudiante(Long idCodigoEstudiante)
         throws Exception {

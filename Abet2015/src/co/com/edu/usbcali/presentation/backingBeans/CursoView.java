@@ -141,54 +141,66 @@ public class CursoView {
         return "";
     }
 
-    public void listener_txtId() {
-        Curso entity = null;
+//    public void listener_txtId() {
+//        Curso entity = null;
+//
+//        try {
+//            Long idCurso = new Long(txtIdCurso.getValue().toString());
+//            entity = businessDelegatorView.getCurso(idCurso);
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
+//
+//        if (entity == null) {
+//            txtNombreCurso.setDisabled(false);
+//            txtIdCodigoDocente_Docente.setDisabled(false);
+//            txtIdCodigoMateria_Materia.setDisabled(false);
+//            txtIdPeriodoAcademico_PeriodoAcademico.setDisabled(false);
+//            txtIdCurso.setDisabled(false);
+//            btnSave.setDisabled(false);
+//            btnDelete.setDisabled(true);
+//            btnModify.setDisabled(true);
+//            btnClear.setDisabled(false);
+//        } else {
+//            txtNombreCurso.setValue(entity.getNombreCurso());
+//            txtNombreCurso.setDisabled(false);
+//            txtIdCodigoDocente_Docente.setValue(entity.getDocente()
+//                                                      .getIdCodigoDocente());
+//            txtIdCodigoDocente_Docente.setDisabled(false);
+//            txtIdCodigoMateria_Materia.setValue(entity.getMateria()
+//                                                      .getIdCodigoMateria());
+//            txtIdCodigoMateria_Materia.setDisabled(false);
+//            txtIdPeriodoAcademico_PeriodoAcademico.setValue(entity.getPeriodoAcademico()
+//                                                                  .getIdPeriodoAcademico());
+//            txtIdPeriodoAcademico_PeriodoAcademico.setDisabled(false);
+//            txtIdCurso.setValue(entity.getIdCurso());
+//            txtIdCurso.setDisabled(true);
+//            btnSave.setDisabled(true);
+//            btnDelete.setDisabled(false);
+//            btnModify.setDisabled(false);
+//            btnClear.setDisabled(false);
+//        }
+//    }
 
-        try {
-            Long idCurso = new Long(txtIdCurso.getValue().toString());
-            entity = businessDelegatorView.getCurso(idCurso);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        if (entity == null) {
-            txtNombreCurso.setDisabled(false);
-            txtIdCodigoDocente_Docente.setDisabled(false);
-            txtIdCodigoMateria_Materia.setDisabled(false);
-            txtIdPeriodoAcademico_PeriodoAcademico.setDisabled(false);
-            txtIdCurso.setDisabled(false);
-            btnSave.setDisabled(false);
-            btnDelete.setDisabled(true);
-            btnModify.setDisabled(true);
-            btnClear.setDisabled(false);
-        } else {
-            txtNombreCurso.setValue(entity.getNombreCurso());
-            txtNombreCurso.setDisabled(false);
-            txtIdCodigoDocente_Docente.setValue(entity.getDocente()
-                                                      .getIdCodigoDocente());
-            txtIdCodigoDocente_Docente.setDisabled(false);
-            txtIdCodigoMateria_Materia.setValue(entity.getMateria()
-                                                      .getIdCodigoMateria());
-            txtIdCodigoMateria_Materia.setDisabled(false);
-            txtIdPeriodoAcademico_PeriodoAcademico.setValue(entity.getPeriodoAcademico()
-                                                                  .getIdPeriodoAcademico());
-            txtIdPeriodoAcademico_PeriodoAcademico.setDisabled(false);
-            txtIdCurso.setValue(entity.getIdCurso());
-            txtIdCurso.setDisabled(true);
-            btnSave.setDisabled(true);
-            btnDelete.setDisabled(false);
-            btnModify.setDisabled(false);
-            btnClear.setDisabled(false);
-        }
-    }
-
+//    public String action_save() {
+//        try {
+//            businessDelegatorView.saveCurso(FacesUtils.checkLong(txtIdCurso),
+//                FacesUtils.checkString(txtNombreCurso),
+//                FacesUtils.checkLong(txtIdCodigoDocente_Docente),
+//                FacesUtils.checkLong(txtIdCodigoMateria_Materia),
+//                FacesUtils.checkLong(txtIdPeriodoAcademico_PeriodoAcademico));
+//            FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
+//            action_clear();
+//        } catch (Exception e) {
+//            FacesUtils.addErrorMessage(e.getMessage());
+//        }
+//
+//        return "";
+//    }
+    
     public String action_save() {
         try {
-            businessDelegatorView.saveCurso(FacesUtils.checkLong(txtIdCurso),
-                FacesUtils.checkString(txtNombreCurso),
-                FacesUtils.checkLong(txtIdCodigoDocente_Docente),
-                FacesUtils.checkLong(txtIdCodigoMateria_Materia),
-                FacesUtils.checkLong(txtIdPeriodoAcademico_PeriodoAcademico));
+            businessDelegatorView.saveCurso(FacesUtils.checkString(txtNombreCurso));
             FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
             action_clear();
         } catch (Exception e) {

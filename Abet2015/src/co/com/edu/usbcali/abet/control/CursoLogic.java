@@ -101,22 +101,107 @@ public class CursoLogic implements ICursoLogic {
         return list;
     }
 
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void saveCurso(Long idCurso, String nombreCurso,
+//        Long idCodigoDocente_Docente, Long idCodigoMateria_Materia,
+//        Long idPeriodoAcademico_PeriodoAcademico) throws Exception {
+//        Curso entity = null;
+//
+//        try {
+//            if (idCurso == null) {
+//                throw new ZMessManager().new EmptyFieldException("idCurso");
+//            }
+//
+//            if ((idCurso != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCurso, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException("idCurso");
+//            }
+//
+//            if ((nombreCurso != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(nombreCurso, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "nombreCurso");
+//            }
+//
+//            if (idCodigoDocente_Docente == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idCodigoDocente_Docente");
+//            }
+//
+//            if ((idCodigoDocente_Docente != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCodigoDocente_Docente, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idCodigoDocente_Docente");
+//            }
+//
+//            if (idCodigoMateria_Materia == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idCodigoMateria_Materia");
+//            }
+//
+//            if ((idCodigoMateria_Materia != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCodigoMateria_Materia, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idCodigoMateria_Materia");
+//            }
+//
+//            if (idPeriodoAcademico_PeriodoAcademico == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idPeriodoAcademico_PeriodoAcademico");
+//            }
+//
+//            if ((idPeriodoAcademico_PeriodoAcademico != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idPeriodoAcademico_PeriodoAcademico, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idPeriodoAcademico_PeriodoAcademico");
+//            }
+//
+//            Docente docenteClass = logicDocente1.getDocente(idCodigoDocente_Docente);
+//            Materia materiaClass = logicMateria2.getMateria(idCodigoMateria_Materia);
+//            PeriodoAcademico periodoAcademicoClass = logicPeriodoAcademico3.getPeriodoAcademico(idPeriodoAcademico_PeriodoAcademico);
+//
+//            if (docenteClass == null) {
+//                throw new ZMessManager().new ForeignException("docente");
+//            }
+//
+//            if (materiaClass == null) {
+//                throw new ZMessManager().new ForeignException("materia");
+//            }
+//
+//            if (periodoAcademicoClass == null) {
+//                throw new ZMessManager().new ForeignException(
+//                    "periodoAcademico");
+//            }
+//
+//            entity = getCurso(idCurso);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Curso();
+//            entity.setIdCurso(idCurso);
+//            entity.setNombreCurso(nombreCurso);
+//            entity.setDocente(docenteClass);
+//            entity.setMateria(materiaClass);
+//            entity.setPeriodoAcademico(periodoAcademicoClass);
+//            cursoDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void saveCurso(Long idCurso, String nombreCurso,
-        Long idCodigoDocente_Docente, Long idCodigoMateria_Materia,
-        Long idPeriodoAcademico_PeriodoAcademico) throws Exception {
+    public void saveCurso( String nombreCurso) throws Exception {
         Curso entity = null;
 
         try {
-            if (idCurso == null) {
-                throw new ZMessManager().new EmptyFieldException("idCurso");
-            }
-
-            if ((idCurso != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCurso, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException("idCurso");
-            }
+           
 
             if ((nombreCurso != null) &&
                     (Utilities.checkWordAndCheckWithlength(nombreCurso, 100) == false)) {
@@ -124,71 +209,17 @@ public class CursoLogic implements ICursoLogic {
                     "nombreCurso");
             }
 
-            if (idCodigoDocente_Docente == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idCodigoDocente_Docente");
-            }
+         
 
-            if ((idCodigoDocente_Docente != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCodigoDocente_Docente, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idCodigoDocente_Docente");
-            }
 
-            if (idCodigoMateria_Materia == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idCodigoMateria_Materia");
-            }
-
-            if ((idCodigoMateria_Materia != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCodigoMateria_Materia, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idCodigoMateria_Materia");
-            }
-
-            if (idPeriodoAcademico_PeriodoAcademico == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idPeriodoAcademico_PeriodoAcademico");
-            }
-
-            if ((idPeriodoAcademico_PeriodoAcademico != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idPeriodoAcademico_PeriodoAcademico, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idPeriodoAcademico_PeriodoAcademico");
-            }
-
-            Docente docenteClass = logicDocente1.getDocente(idCodigoDocente_Docente);
-            Materia materiaClass = logicMateria2.getMateria(idCodigoMateria_Materia);
-            PeriodoAcademico periodoAcademicoClass = logicPeriodoAcademico3.getPeriodoAcademico(idPeriodoAcademico_PeriodoAcademico);
-
-            if (docenteClass == null) {
-                throw new ZMessManager().new ForeignException("docente");
-            }
-
-            if (materiaClass == null) {
-                throw new ZMessManager().new ForeignException("materia");
-            }
-
-            if (periodoAcademicoClass == null) {
-                throw new ZMessManager().new ForeignException(
-                    "periodoAcademico");
-            }
-
-            entity = getCurso(idCurso);
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
             }
 
             entity = new Curso();
-            entity.setIdCurso(idCurso);
             entity.setNombreCurso(nombreCurso);
-            entity.setDocente(docenteClass);
-            entity.setMateria(materiaClass);
-            entity.setPeriodoAcademico(periodoAcademicoClass);
+
             cursoDAO.save(entity);
         } catch (Exception e) {
             throw e;

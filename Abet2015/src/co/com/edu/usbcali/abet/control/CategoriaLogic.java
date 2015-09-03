@@ -59,22 +59,75 @@ public class CategoriaLogic implements ICategoriaLogic {
         return list;
     }
 
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    public void saveCategoria(Long idCategoria, String nombrecategoria,
+//        Long idRubrica_Rubrica) throws Exception {
+//        Categoria entity = null;
+//
+//        try {
+//            if (idCategoria == null) {
+//                throw new ZMessManager().new EmptyFieldException("idCategoria");
+//            }
+//
+//            if ((idCategoria != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idCategoria, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idCategoria");
+//            }
+//
+//            if (nombrecategoria == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "nombrecategoria");
+//            }
+//
+//            if ((nombrecategoria != null) &&
+//                    (Utilities.checkWordAndCheckWithlength(nombrecategoria, 100) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "nombrecategoria");
+//            }
+//
+//            if (idRubrica_Rubrica == null) {
+//                throw new ZMessManager().new EmptyFieldException(
+//                    "idRubrica_Rubrica");
+//            }
+//
+//            if ((idRubrica_Rubrica != null) &&
+//                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
+//                        idRubrica_Rubrica, 22, 0) == false)) {
+//                throw new ZMessManager().new NotValidFormatException(
+//                    "idRubrica_Rubrica");
+//            }
+//
+//            Rubrica rubricaClass = logicRubrica1.getRubrica(idRubrica_Rubrica);
+//
+//            if (rubricaClass == null) {
+//                throw new ZMessManager().new ForeignException("rubrica");
+//            }
+//
+//            entity = getCategoria(idCategoria);
+//
+//            if (entity != null) {
+//                throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
+//            }
+//
+//            entity = new Categoria();
+//            entity.setIdCategoria(idCategoria);
+//            entity.setNombrecategoria(nombrecategoria);
+//            entity.setRubrica(rubricaClass);
+//            categoriaDAO.save(entity);
+//        } catch (Exception e) {
+//            throw e;
+//        } finally {
+//        }
+//    }
+    
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void saveCategoria(Long idCategoria, String nombrecategoria,
-        Long idRubrica_Rubrica) throws Exception {
+    public void saveCategoria(String nombrecategoria) throws Exception {
         Categoria entity = null;
 
         try {
-            if (idCategoria == null) {
-                throw new ZMessManager().new EmptyFieldException("idCategoria");
-            }
-
-            if ((idCategoria != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idCategoria, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idCategoria");
-            }
+           
 
             if (nombrecategoria == null) {
                 throw new ZMessManager().new EmptyFieldException(
@@ -87,34 +140,17 @@ public class CategoriaLogic implements ICategoriaLogic {
                     "nombrecategoria");
             }
 
-            if (idRubrica_Rubrica == null) {
-                throw new ZMessManager().new EmptyFieldException(
-                    "idRubrica_Rubrica");
-            }
 
-            if ((idRubrica_Rubrica != null) &&
-                    (Utilities.checkNumberAndCheckWithPrecisionAndScale("" +
-                        idRubrica_Rubrica, 22, 0) == false)) {
-                throw new ZMessManager().new NotValidFormatException(
-                    "idRubrica_Rubrica");
-            }
 
-            Rubrica rubricaClass = logicRubrica1.getRubrica(idRubrica_Rubrica);
 
-            if (rubricaClass == null) {
-                throw new ZMessManager().new ForeignException("rubrica");
-            }
-
-            entity = getCategoria(idCategoria);
 
             if (entity != null) {
                 throw new ZMessManager(ZMessManager.ENTITY_WITHSAMEKEY);
             }
 
             entity = new Categoria();
-            entity.setIdCategoria(idCategoria);
+
             entity.setNombrecategoria(nombrecategoria);
-            entity.setRubrica(rubricaClass);
             categoriaDAO.save(entity);
         } catch (Exception e) {
             throw e;

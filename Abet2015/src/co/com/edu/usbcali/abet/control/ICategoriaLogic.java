@@ -21,8 +21,10 @@ public interface ICategoriaLogic {
     /**
          * Save an new Categoria entity
          */
-    public void saveCategoria(Long idCategoria, String nombrecategoria,
-        Long idRubrica_Rubrica) throws Exception;
+//    public void saveCategoria(Long idCategoria, String nombrecategoria,
+//        Long idRubrica_Rubrica) throws Exception;
+    
+    public void saveCategoria(String nombrecategoria) throws Exception;
 
     /**
          * Delete an existing Categoria entity

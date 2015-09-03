@@ -129,51 +129,64 @@ public class AssesmentView {
         return "";
     }
 
-    public void listener_txtId() {
-        Assesment entity = null;
+//    public void listener_txtId() {
+//        Assesment entity = null;
+//
+//        try {
+//            Long idCodigoAssesment = new Long(txtIdCodigoAssesment.getValue()
+//                                                                  .toString());
+//            entity = businessDelegatorView.getAssesment(idCodigoAssesment);
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
+//
+//        if (entity == null) {
+//            txtCalificacion.setDisabled(false);
+//            txtIdListaSepia_ListaSepia.setDisabled(false);
+//            txtIdRubricaPorCurso_RubricaPorCurso.setDisabled(false);
+//            txtIdCodigoAssesment.setDisabled(false);
+//            btnSave.setDisabled(false);
+//            btnDelete.setDisabled(true);
+//            btnModify.setDisabled(true);
+//            btnClear.setDisabled(false);
+//        } else {
+//            txtCalificacion.setValue(entity.getCalificacion());
+//            txtCalificacion.setDisabled(false);
+//            txtIdListaSepia_ListaSepia.setValue(entity.getListaSepia()
+//                                                      .getIdListaSepia());
+//            txtIdListaSepia_ListaSepia.setDisabled(false);
+//            txtIdRubricaPorCurso_RubricaPorCurso.setValue(entity.getRubricaPorCurso()
+//                                                                .getIdRubricaPorCurso());
+//            txtIdRubricaPorCurso_RubricaPorCurso.setDisabled(false);
+//            txtIdCodigoAssesment.setValue(entity.getIdCodigoAssesment());
+//            txtIdCodigoAssesment.setDisabled(true);
+//            btnSave.setDisabled(true);
+//            btnDelete.setDisabled(false);
+//            btnModify.setDisabled(false);
+//            btnClear.setDisabled(false);
+//        }
+//    }
 
-        try {
-            Long idCodigoAssesment = new Long(txtIdCodigoAssesment.getValue()
-                                                                  .toString());
-            entity = businessDelegatorView.getAssesment(idCodigoAssesment);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        if (entity == null) {
-            txtCalificacion.setDisabled(false);
-            txtIdListaSepia_ListaSepia.setDisabled(false);
-            txtIdRubricaPorCurso_RubricaPorCurso.setDisabled(false);
-            txtIdCodigoAssesment.setDisabled(false);
-            btnSave.setDisabled(false);
-            btnDelete.setDisabled(true);
-            btnModify.setDisabled(true);
-            btnClear.setDisabled(false);
-        } else {
-            txtCalificacion.setValue(entity.getCalificacion());
-            txtCalificacion.setDisabled(false);
-            txtIdListaSepia_ListaSepia.setValue(entity.getListaSepia()
-                                                      .getIdListaSepia());
-            txtIdListaSepia_ListaSepia.setDisabled(false);
-            txtIdRubricaPorCurso_RubricaPorCurso.setValue(entity.getRubricaPorCurso()
-                                                                .getIdRubricaPorCurso());
-            txtIdRubricaPorCurso_RubricaPorCurso.setDisabled(false);
-            txtIdCodigoAssesment.setValue(entity.getIdCodigoAssesment());
-            txtIdCodigoAssesment.setDisabled(true);
-            btnSave.setDisabled(true);
-            btnDelete.setDisabled(false);
-            btnModify.setDisabled(false);
-            btnClear.setDisabled(false);
-        }
-    }
-
+//    public String action_save() {
+//        try {
+//            businessDelegatorView.saveAssesment(FacesUtils.checkLong(
+//                    txtCalificacion),
+//                FacesUtils.checkLong(txtIdCodigoAssesment),
+//                FacesUtils.checkLong(txtIdListaSepia_ListaSepia),
+//                FacesUtils.checkLong(txtIdRubricaPorCurso_RubricaPorCurso));
+//            FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
+//            action_clear();
+//        } catch (Exception e) {
+//            FacesUtils.addErrorMessage(e.getMessage());
+//        }
+//
+//        return "";
+//    }
+    
     public String action_save() {
         try {
             businessDelegatorView.saveAssesment(FacesUtils.checkLong(
-                    txtCalificacion),
-                FacesUtils.checkLong(txtIdCodigoAssesment),
-                FacesUtils.checkLong(txtIdListaSepia_ListaSepia),
-                FacesUtils.checkLong(txtIdRubricaPorCurso_RubricaPorCurso));
+                    txtCalificacion));
             FacesUtils.addInfoMessage(ZMessManager.ENTITY_SUCCESFULLYSAVED);
             action_clear();
         } catch (Exception e) {

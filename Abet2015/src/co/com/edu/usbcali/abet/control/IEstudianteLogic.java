@@ -21,9 +21,13 @@ public interface IEstudianteLogic {
     /**
          * Save an new Estudiante entity
          */
+//    public void saveEstudiante(String direccion, String email,
+//        Long idCodigoEstudiante, String nombre, String telefono)
+//        throws Exception;
+    
     public void saveEstudiante(String direccion, String email,
-        Long idCodigoEstudiante, String nombre, String telefono)
-        throws Exception;
+             String nombre, String telefono)
+            throws Exception;
 
     /**
          * Delete an existing Estudiante entity

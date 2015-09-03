@@ -89,9 +89,12 @@ import java.util.Set;
 public interface IBusinessDelegatorView {
     public List<Assesment> getAssesment() throws Exception;
 
-    public void saveAssesment(Long calificacion, Long idCodigoAssesment,
-        Long idListaSepia_ListaSepia, Long idRubricaPorCurso_RubricaPorCurso)
-        throws Exception;
+//    public void saveAssesment(Long calificacion, Long idCodigoAssesment,
+//        Long idListaSepia_ListaSepia, Long idRubricaPorCurso_RubricaPorCurso)
+//        throws Exception;
+    
+    public void saveAssesment(Long calificacion)
+            throws Exception;
 
     public void deleteAssesment(Long idCodigoAssesment)
         throws Exception;
@@ -117,8 +120,11 @@ public interface IBusinessDelegatorView {
 
     public List<Categoria> getCategoria() throws Exception;
 
-    public void saveCategoria(Long idCategoria, String nombrecategoria,
-        Long idRubrica_Rubrica) throws Exception;
+//    public void saveCategoria(Long idCategoria, String nombrecategoria,
+//        Long idRubrica_Rubrica) throws Exception;
+    
+    public void saveCategoria( String nombrecategoria
+            ) throws Exception;
 
     public void deleteCategoria(Long idCategoria) throws Exception;
 
@@ -141,9 +147,11 @@ public interface IBusinessDelegatorView {
 
     public List<Curso> getCurso() throws Exception;
 
-    public void saveCurso(Long idCurso, String nombreCurso,
-        Long idCodigoDocente_Docente, Long idCodigoMateria_Materia,
-        Long idPeriodoAcademico_PeriodoAcademico) throws Exception;
+//    public void saveCurso(Long idCurso, String nombreCurso,
+//        Long idCodigoDocente_Docente, Long idCodigoMateria_Materia,
+//        Long idPeriodoAcademico_PeriodoAcademico) throws Exception;
+    
+    public void saveCurso( String nombreCurso) throws Exception;
 
     public void deleteCurso(Long idCurso) throws Exception;
 
@@ -194,8 +202,11 @@ public interface IBusinessDelegatorView {
 
     public List<Docente> getDocente() throws Exception;
 
-    public void saveDocente(Long idCodigoDocente, String nombreDocente)
-        throws Exception;
+//    public void saveDocente(Long idCodigoDocente, String nombreDocente)
+//        throws Exception;
+    
+    public void saveDocente(String nombreDocente)
+            throws Exception;
 
     public void deleteDocente(Long idCodigoDocente) throws Exception;
 
@@ -218,9 +229,13 @@ public interface IBusinessDelegatorView {
 
     public List<Estudiante> getEstudiante() throws Exception;
 
+//    public void saveEstudiante(String direccion, String email,
+//        Long idCodigoEstudiante, String nombre, String telefono)
+//        throws Exception;
+    
     public void saveEstudiante(String direccion, String email,
-        Long idCodigoEstudiante, String nombre, String telefono)
-        throws Exception;
+             String nombre, String telefono)
+            throws Exception;
 
     public void deleteEstudiante(Long idCodigoEstudiante)
         throws Exception;
